@@ -99,6 +99,9 @@ DID11="7${DID10}"
 if [[ -z "$CONFIRM_NUMBER" ]]; then
   CONFIRM_NUMBER="+${DID11}"
 fi
+if [[ -n "$CONFIRM_NUMBER" && "${CONFIRM_NUMBER:0:1}" != "+" ]]; then
+  CONFIRM_NUMBER="+${CONFIRM_NUMBER}"
+fi
 
 require_root
 check_paths
